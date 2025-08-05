@@ -1,17 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import "server-only";
-
-import { ThemeProvider } from "@/components/providers";
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import NextTopLoader from 'nextjs-toploader'
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/constants";
-
-export const dynamic = "force-dynamic";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
@@ -50,33 +38,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BaseLayout({
+// Since we have a `not-found.tsx` page on the root, a layout file
+// is required, even if it's just passing children through.
+export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <NextTopLoader
-          initialPosition={0.15}
-          shadow="0 0 10px #000, 0 0 5px #000"
-          height={4}
-        />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-        >
-          <TooltipProvider
-            delayDuration={100}
-            skipDelayDuration={50}
-          >
-            {children}
-          </TooltipProvider>
-        </ThemeProvider>
-        <Toaster richColors closeButton position="top-right" expand duration={7000} />
-      </body>
-    </html>
-  );
+}) {
+  return children;
 }

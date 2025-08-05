@@ -1,0 +1,165 @@
+{
+  "site": {
+    "name": "Starry AI Navigator",
+    "tagline": "Starry AI Navigator",
+    "description": "Transform your GitHub Stars from a static collection into a dynamic, intelligent, and deeply searchable personal technical knowledge base. Find any starred repository in seconds with advanced filtering and AI-powered semantic search."
+  },
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "signin": "Sign In",
+    "signup": "Sign Up",
+    "signout": "Sign Out",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "hero": {
+    "badge1": "GitHub Stars Manager",
+    "badge2": "AI Smart Search",
+    "title": "Starry AI Navigator",
+    "subtitle": "星海AI领航员",
+    "description": "Transform your GitHub Stars from a static collection into a dynamic, intelligent, and deeply searchable personal technical knowledge base. Find any starred repository in seconds with advanced filtering and AI-powered semantic search.",
+    "cta": {
+      "primary": "Start Searching Stars",
+      "secondary": "View on GitHub"
+    },
+    "demo": {
+      "title": "Search Demo",
+      "placeholder": "Describe the repository you're looking for...",
+      "example": "e.g., \"Go image compression library\" or \"MIT licensed React components\""
+    }
+  },
+  "features": {
+    "title": "Powerful Features",
+    "subtitle": "Bring your GitHub Stars back to life",
+    "description": "From traditional \"star and forget\" to intelligent knowledge base management. Combine AI semantic search with precise filtering to quickly find every starred repository when needed.",
+    "items": {
+      "aiSearch": {
+        "title": "AI Smart Search",
+        "description": "Use advanced semantic understanding technology to find repositories through natural language descriptions. Even if you forget the exact name, just describe the functionality for precise positioning."
+      },
+      "preciseFilter": {
+        "title": "Precise Filtering",
+        "description": "Support filtering by programming language, star count, starred time, license, activity and other dimensions to quickly narrow down search scope."
+      },
+      "hybridSearch": {
+        "title": "Hybrid Search",
+        "description": "Innovatively combine AI semantic search with traditional precise filtering, allowing you to use both methods simultaneously for the most accurate search results."
+      },
+      "autoSync": {
+        "title": "Auto Sync",
+        "description": "After GitHub OAuth authorization, automatically sync all your Stars and establish daily scheduled tasks to ensure data stays up-to-date."
+      },
+      "fastResponse": {
+        "title": "Fast Response",
+        "description": "Based on Cloudflare edge computing network, P95 response time under 2 seconds, enjoy ultra-fast search experience anywhere in the world."
+      },
+      "zeroCost": {
+        "title": "Zero Cost Operation",
+        "description": "Fully utilize Cloudflare's free tier, including Workers, D1 database, Vectorize vector search, etc., achieving completely free service deployment."
+      },
+      "openSource": {
+        "title": "Open Source Transparency",
+        "description": "Completely open source project hosted on GitHub. You can view all implementation details and deploy your own private instance."
+      },
+      "starManagement": {
+        "title": "Star Management",
+        "description": "Not just a search tool, but your personal technical knowledge base manager. Let every starred repository be reactivated and utilized when needed."
+      }
+    }
+  },
+  "demo": {
+    "title": "Product Demo",
+    "subtitle": "See how it works",
+    "description": "Experience the powerful capabilities of intelligent search. Even if you only remember vague descriptions, you can quickly find target repositories.",
+    "search": {
+      "title": "Smart Search",
+      "tryThese": "Try these queries:",
+      "queries": [
+        "Go image compression library",
+        "MIT licensed React components",
+        "Python machine learning projects",
+        "Microservices architecture examples"
+      ]
+    },
+    "filter": {
+      "title": "Advanced Filtering",
+      "combinable": "Combinable",
+      "language": "Language",
+      "stars": "Stars",
+      "starredAt": "Starred At",
+      "license": "License",
+      "recentMonth": "Recent 1 month"
+    },
+    "results": {
+      "title": "Search Results",
+      "found": "Found {count} results",
+      "aiRecommended": "AI Recommended"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": {
+      "free": {
+        "question": "Is this tool really free?",
+        "answer": "Yes, Starry AI Navigator is completely free and open source! You can use it for personal and commercial projects without any licensing fees. You can fork, copy, modify, and distribute it without any restrictions."
+      },
+      "apiKey": {
+        "question": "Do I need to provide API Keys?",
+        "answer": "No! We use Cloudflare Workers AI's free Embedding models, so you don't need to provide any API Keys. Just authorize through GitHub OAuth to start using."
+      },
+      "security": {
+        "question": "Is my GitHub Token secure?",
+        "answer": "Absolutely secure. We employ multiple security measures: GitHub Tokens are not stored on the client side; backend uses them immediately and discards them; secure storage using Cloudflare Secrets; all communications forced HTTPS; strict adherence to OAuth 2.0 security standards."
+      },
+      "accuracy": {
+        "question": "How accurate is the AI search?",
+        "answer": "Our goal is to achieve over 70% first-screen click rate. By combining AI semantic search with precise filtering, even vague descriptions can quickly find relevant repositories. The system continuously learns and optimizes based on your search history."
+      },
+      "capacity": {
+        "question": "How many Stars can I search?",
+        "answer": "Theoretically unlimited! The system supports: automatic full sync of all Stars after first authorization; daily automatic incremental sync of new Stars; vector search based, better performance with more data; response time always under 2 seconds."
+      },
+      "searchTypes": {
+        "question": "What search features are available?",
+        "answer": "We provide two complementary search methods: AI Smart Search: natural language descriptions like \"Go image compression library\"; Precise Filtering: filter by language, star count, starred time, license, etc.; Hybrid Search: combine both methods for most accurate results; Real-time Results: search as you type, no waiting."
+      },
+      "deployment": {
+        "question": "How to deploy my own instance?",
+        "answer": "Deployment is simple, you just need to: 1. Fork the project to your GitHub; 2. Create D1 database and Vectorize index in Cloudflare; 3. Configure GitHub OAuth app; 4. Deploy to Cloudflare Pages; 5. Run database migrations. See deployment documentation for detailed steps."
+      },
+      "cost": {
+        "question": "What's the running cost?",
+        "answer": "Almost zero! We fully utilize Cloudflare's free tier: Cloudflare Pages: free hosting; Cloudflare Workers: free 100,000 requests/day; D1 database: free 100,000 reads/writes/day; Vectorize: free 300,000 queries/month; Workers AI: free 10,000 requests/day. For personal use, it's completely within the free quota."
+      },
+      "contribute": {
+        "question": "How to contribute and provide feedback?",
+        "answer": "Contributions are welcome! You can submit Issues, Pull Requests, or help improve documentation on GitHub. The project follows standard open source contribution guidelines."
+      }
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error occurred",
+    "retry": "Retry",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "language": "Language"
+  },
+  "NotFoundPage": {
+    "title": "404 - Page Not Found",
+    "description": "The page you are looking for does not exist.",
+    "returnHome": "Return Home"
+  }
+}

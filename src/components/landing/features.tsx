@@ -1,79 +1,75 @@
-import {
-  CloudIcon,
-  BoltIcon,
-  ShieldCheckIcon,
-  RocketLaunchIcon,
-  EnvelopeIcon,
-  CommandLineIcon,
-  SunIcon,
-  UserGroupIcon,
-} from "@heroicons/react/24/outline";
+'use client';
 
-const features = [
-  {
-    name: "Authentication Ready",
-    description:
-      "Complete authentication system with email/password sign in, sign up, forgot password flow, and session management using Lucia Auth.",
-    icon: ShieldCheckIcon,
-  },
-  {
-    name: "Database & Email",
-    description:
-      "Drizzle ORM with Cloudflare D1 for the database, and React Email with Resend for beautiful email templates.",
-    icon: EnvelopeIcon,
-  },
-  {
-    name: "Modern Stack",
-    description:
-      "Next.js 15 App Router with React Server Components, Server Actions, and Edge Runtime for optimal performance.",
-    icon: BoltIcon,
-  },
-  {
-    name: "Beautiful UI",
-    description:
-      "Polished UI with Tailwind CSS, Shadcn UI components, dark/light mode, and responsive design out of the box.",
-    icon: SunIcon,
-  },
-  {
-    name: "Edge Deployment",
-    description:
-      "Deploy globally with Cloudflare Workers for zero cold starts and leverage Cloudflare's edge network for blazing-fast performance.",
-    icon: CloudIcon,
-  },
-  {
-    name: "Developer Experience",
-    description:
-      "GitHub Actions for deployment, comprehensive documentation, and TypeScript for type safety.",
-    icon: CommandLineIcon,
-  },
-  {
-    name: "Form Handling",
-    description:
-      "Built-in form validation with Zod and React Hook Form for a smooth user experience.",
-    icon: RocketLaunchIcon,
-  },
-  {
-    name: "Team Ready",
-    description:
-      "Built with collaboration in mind. Easy to customize and extend with your team's requirements.",
-    icon: UserGroupIcon,
-  },
-];
+import {
+  StarIcon,
+  MagnifyingGlassIcon,
+  SparklesIcon,
+  FunnelIcon,
+  ClockIcon,
+  CpuChipIcon,
+  CodeBracketIcon,
+  LightBulbIcon,
+} from "@heroicons/react/24/outline";
+import { useTranslations } from 'next-intl';
 
 export function Features() {
+  const t = useTranslations('features');
+
+  const features = [
+    {
+      name: t('items.aiSearch.title'),
+      description: t('items.aiSearch.description'),
+      icon: SparklesIcon,
+    },
+    {
+      name: t('items.preciseFilter.title'),
+      description: t('items.preciseFilter.description'),
+      icon: FunnelIcon,
+    },
+    {
+      name: t('items.hybridSearch.title'),
+      description: t('items.hybridSearch.description'),
+      icon: MagnifyingGlassIcon,
+    },
+    {
+      name: t('items.autoSync.title'),
+      description: t('items.autoSync.description'),
+      icon: ClockIcon,
+    },
+    {
+      name: t('items.fastResponse.title'),
+      description: t('items.fastResponse.description'),
+      icon: CpuChipIcon,
+    },
+    {
+      name: t('items.zeroCost.title'),
+      description: t('items.zeroCost.description'),
+      icon: LightBulbIcon,
+    },
+    {
+      name: t('items.openSource.title'),
+      description: t('items.openSource.description'),
+      icon: CodeBracketIcon,
+    },
+    {
+      name: t('items.starManagement.title'),
+      description: t('items.starManagement.description'),
+      icon: StarIcon,
+    },
+  ];
+
   return (
     <div className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600 dark:text-indigo-400">
-            Production Ready
+          <h2 className="text-base font-semibold leading-7 text-blue-600 dark:text-blue-400">
+            {t('title')}
           </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-            Everything you need to build a SaaS
+            {t('subtitle')}
           </p>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
-            Start with a complete foundation. All the essential features are built-in,
-            so you can focus on what makes your SaaS unique.
+            {t('description')}
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -82,7 +78,7 @@ export function Features() {
               <div key={feature.name} className="flex flex-col">
                 <dt className="flex items-center gap-x-3 text-base font-semibold leading-7">
                   <feature.icon
-                    className="h-5 w-5 flex-none text-indigo-600 dark:text-indigo-400"
+                    className="h-5 w-5 flex-none text-blue-600 dark:text-blue-400"
                     aria-hidden="true"
                   />
                   {feature.name}

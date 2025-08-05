@@ -2,8 +2,8 @@ import type { Route } from "next"
 
 export const SITE_NAME = "Starry AI Navigator"
 export const SITE_DESCRIPTION = "Transform your GitHub Stars into a dynamic, searchable knowledge base. Find any starred repository in seconds with advanced filtering and AI-powered semantic search."
-export const SITE_URL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://your-production-url.com" // TODO: Change this
-export const GITHUB_REPO_URL = "https://github.com/your-repo" // TODO: Change this
+export const SITE_URL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://starry-ai-navigator.example.com" // TODO: 部署后更改为实际域名
+export const GITHUB_REPO_URL = "https://github.com/your-username/starry-ai-navigator" // TODO: 更改为实际的 GitHub 仓库地址
 
 export const SITE_DOMAIN = new URL(SITE_URL).hostname
 

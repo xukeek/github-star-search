@@ -1,0 +1,165 @@
+{
+  "site": {
+    "name": "Starry AI Navigator",
+    "tagline": "星海AI领航员",
+    "description": "将你的 GitHub Stars 从静态收藏夹，转变为动态、智能、可深度检索的个人技术知识库。通过 AI 语义搜索和精确筛选，让你在数秒内找到任何收藏的仓库。"
+  },
+  "navigation": {
+    "home": "首页",
+    "dashboard": "控制台",
+    "signin": "登录",
+    "signup": "注册",
+    "signout": "退出",
+    "profile": "个人资料",
+    "settings": "设置"
+  },
+  "hero": {
+    "badge1": "GitHub Stars 管理工具",
+    "badge2": "AI 智能搜索",
+    "title": "星海AI领航员",
+    "subtitle": "Starry AI Navigator",
+    "description": "将你的 GitHub Stars 从静态收藏夹，转变为动态、智能、可深度检索的个人技术知识库。通过 AI 语义搜索和精确筛选，让你在数秒内找到任何收藏的仓库。",
+    "cta": {
+      "primary": "开始搜索 Stars",
+      "secondary": "在 GitHub 上查看"
+    },
+    "demo": {
+      "title": "搜索演示",
+      "placeholder": "描述你想找的仓库...",
+      "example": "例如：\"用 Go 写的图片压缩库\" 或 \"MIT 协议的 React 组件\""
+    }
+  },
+  "features": {
+    "title": "强大功能",
+    "subtitle": "让你的 GitHub Stars 重新焕发活力",
+    "description": "从传统的\"收藏即遗忘\"，到智能的知识库管理。结合AI语义搜索与精确筛选，让每个收藏的仓库都能在需要时被快速找到。",
+    "items": {
+      "aiSearch": {
+        "title": "AI 智能搜索",
+        "description": "使用先进的语义理解技术，通过自然语言描述找到你想要的仓库。即使忘记了确切名称，只需描述功能即可精准定位。"
+      },
+      "preciseFilter": {
+        "title": "精确筛选",
+        "description": "支持按编程语言、Star数、收藏时间、许可证、活跃度等多个维度进行精确筛选，快速缩小搜索范围。"
+      },
+      "hybridSearch": {
+        "title": "混合搜索",
+        "description": "创新性地将AI语义搜索与传统精确筛选相结合，让你可以同时使用两种方式，获得最精准的搜索结果。"
+      },
+      "autoSync": {
+        "title": "自动同步",
+        "description": "通过GitHub OAuth授权后，自动同步你的所有Stars，并建立每日定时任务，确保数据始终保持最新状态。"
+      },
+      "fastResponse": {
+        "title": "快速响应",
+        "description": "基于Cloudflare边缘计算网络，P95响应时间低于2秒，让你在全球任何地方都能享受极速搜索体验。"
+      },
+      "zeroCost": {
+        "title": "零成本运维",
+        "description": "充分利用Cloudflare免费套餐，包括Workers、D1数据库、Vectorize向量搜索等，实现完全免费的服务部署。"
+      },
+      "openSource": {
+        "title": "开源透明",
+        "description": "完全开源的项目，代码托管在GitHub上，你可以查看所有实现细节，也可以部署属于自己的私有实例。"
+      },
+      "starManagement": {
+        "title": "收藏管理",
+        "description": "不仅是搜索工具，更是你的个人技术知识库管理器。让每一个收藏的仓库都能在需要时被重新激活和利用。"
+      }
+    }
+  },
+  "demo": {
+    "title": "产品演示",
+    "subtitle": "看看它是如何工作的",
+    "description": "体验智能搜索的强大能力，即使你只记得模糊的描述，也能快速找到目标仓库。",
+    "search": {
+      "title": "智能搜索",
+      "tryThese": "试试这些查询:",
+      "queries": [
+        "用 Go 写的图片压缩库",
+        "MIT 协议的 React 组件",
+        "机器学习相关的 Python 项目",
+        "微服务架构的示例代码"
+      ]
+    },
+    "filter": {
+      "title": "高级筛选",
+      "combinable": "可组合使用",
+      "language": "编程语言",
+      "stars": "Star 数",
+      "starredAt": "收藏时间",
+      "license": "许可证",
+      "recentMonth": "最近 1 个月"
+    },
+    "results": {
+      "title": "搜索结果",
+      "found": "找到 {count} 个结果",
+      "aiRecommended": "AI 推荐"
+    }
+  },
+  "faq": {
+    "title": "常见问题解答",
+    "items": {
+      "free": {
+        "question": "这个工具是免费的吗？",
+        "answer": "是的，Starry AI Navigator 完全免费且开源！你可以在个人和商业项目中使用，无需任何许可费用。你可以 fork、复制、修改和分发，无任何限制。"
+      },
+      "apiKey": {
+        "question": "我需要提供 API Key 吗？",
+        "answer": "不需要！我们使用 Cloudflare Workers AI 提供的免费 Embedding 模型，无需你提供任何 API Key。只需要通过 GitHub OAuth 授权即可开始使用。"
+      },
+      "security": {
+        "question": "我的 GitHub Token 安全吗？",
+        "answer": "绝对安全。我们采用了多重安全措施：GitHub Token 不存储在客户端；后端获取后立即使用并丢弃；使用 Cloudflare Secrets 进行安全存储；所有通信强制使用 HTTPS；严格遵循 OAuth 2.0 安全标准。"
+      },
+      "accuracy": {
+        "question": "AI 搜索的准确度如何？",
+        "answer": "我们的目标是实现首屏点击率超过 70%。通过将 AI 语义搜索与精确筛选相结合，即使是模糊的描述也能快速找到相关仓库。系统会根据你的搜索历史不断学习和优化。"
+      },
+      "capacity": {
+        "question": "支持搜索多少个 Stars？",
+        "answer": "理论上没有上限！系统支持：首次授权后自动全量同步所有 Stars；每日自动增量同步新增的 Stars；基于向量搜索，数据量越大效果越好；响应时间始终保持在 2 秒以内。"
+      },
+      "searchTypes": {
+        "question": "有哪些搜索功能？",
+        "answer": "我们提供两种互补的搜索方式：AI 智能搜索：自然语言描述，如\"用 Go 写的图片压缩库\"；精确筛选：按语言、Star数、收藏时间、许可证等筛选；混合搜索：两种方式可组合使用，获得最精准结果；实时结果：输入即搜索，无需等待。"
+      },
+      "deployment": {
+        "question": "如何部署自己的实例？",
+        "answer": "部署非常简单，你只需要：1. Fork 项目到你的 GitHub；2. 在 Cloudflare 创建 D1 数据库和 Vectorize 索引；3. 配置 GitHub OAuth 应用；4. 部署到 Cloudflare Pages；5. 运行数据库迁移。详细步骤请查看部署文档。"
+      },
+      "cost": {
+        "question": "运行成本是多少？",
+        "answer": "几乎为零！我们充分利用了 Cloudflare 的免费套餐：Cloudflare Pages：免费托管；Cloudflare Workers：免费 100,000 次请求/天；D1 数据库：免费 100,000 次读/写/天；Vectorize：免费 300,000 次查询/月；Workers AI：免费 10,000 次请求/天。对于个人使用来说，完全在免费额度内。"
+      },
+      "contribute": {
+        "question": "如何贡献和反馈？",
+        "answer": "欢迎贡献！你可以在 GitHub 上提交 Issue、Pull Request 或帮助改进文档。项目遵循标准的开源贡献指南。"
+      }
+    }
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "出错了",
+    "retry": "重试",
+    "close": "关闭",
+    "save": "保存",
+    "cancel": "取消",
+    "confirm": "确认",
+    "delete": "删除",
+    "edit": "编辑",
+    "view": "查看",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "search": "搜索",
+    "filter": "筛选",
+    "sort": "排序",
+    "language": "语言"
+  },
+  "NotFoundPage": {
+    "title": "404 - 页面未找到",
+    "description": "您正在寻找的页面不存在。",
+    "returnHome": "返回首页"
+  }
+}

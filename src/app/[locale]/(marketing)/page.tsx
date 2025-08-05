@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Hero } from "@/components/landing/hero";
 import { Features } from "@/components/landing/features";
+import { DemoPreview } from "@/components/landing/demo-preview";
 import { FAQ } from "@/components/landing/faq";
 import { SITE_NAME, SITE_DESCRIPTION } from "@/constants";
 
@@ -14,6 +15,7 @@ export default function Home() {
     <main>
       <Hero />
       <Features />
+      <DemoPreview />
       <FAQ />
     </main>
   );
