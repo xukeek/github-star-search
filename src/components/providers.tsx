@@ -6,9 +6,6 @@ import { HeroUIProvider } from "@heroui/react"
 import type { SessionValidationResult } from "@/types"
 import { useSessionStore } from "@/state/session"
 import { Suspense, useEffect, useRef, RefObject, useCallback } from "react"
-import { useConfigStore } from "@/state/config"
-import type { getConfig } from "@/flags"
-import { EmailVerificationDialog } from "./email-verification-dialog"
 import { useTopLoader } from 'nextjs-toploader'
 import { usePathname, useRouter, useSearchParams, useParams } from "next/navigation"
 import { useEventListener, useDebounceCallback } from 'usehooks-ts';
@@ -54,7 +51,6 @@ export function ThemeProvider({
   ...props
 }: React.ComponentProps<typeof NextThemesProvider>) {
   const setSession = useSessionStore((store) => store.setSession)
-  const setConfig = useConfigStore((store) => store.setConfig)
   const refetchSession = useSessionStore((store) => store.refetchSession)
   const clearSession = useSessionStore((store) => store.clearSession)
   const documentRef = useRef(typeof window === 'undefined' ? null : document)
@@ -64,15 +60,12 @@ export function ThemeProvider({
     try {
       refetchSession() // Set loading state before fetch
       const response = await fetch('/api/get-session')
-      const sessionWithConfig = await response.json() as {
+      const sessionData = await response.json() as {
         session: SessionValidationResult
-        config: Awaited<ReturnType<typeof getConfig>>
       }
 
-      setConfig(sessionWithConfig?.config)
-
-      if (sessionWithConfig?.session) {
-        setSession(sessionWithConfig?.session)
+      if (sessionData?.session) {
+        setSession(sessionData?.session)
       } else {
         clearSession()
       }
@@ -80,7 +73,7 @@ export function ThemeProvider({
       console.error('Failed to fetch session:', error)
       clearSession()
     }
-  }, [setSession, setConfig, clearSession, refetchSession])
+  }, [setSession, clearSession, refetchSession])
 
   const fetchSession = useDebounceCallback(doFetchSession, 30)
 
@@ -113,7 +106,6 @@ export function ThemeProvider({
       </Suspense>
       <NextThemesProvider {...props} attribute="class">
         {children}
-        <EmailVerificationDialog />
       </NextThemesProvider>
     </HeroUIProvider>
   )

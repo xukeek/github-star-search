@@ -1,175 +1,46 @@
-# Cloudflare Workers SaaS Template
+# Starry AI Navigator (星海AI领航员)
 
-[![.github/workflows/deploy.yml](https://github.com/LubomirGeorgiev/cloudflare-workers-nextjs-saas-template/actions/workflows/deploy.yml/badge.svg)](https://github.com/LubomirGeorgiev/cloudflare-workers-nextjs-saas-template/actions/workflows/deploy.yml)
+Starry AI Navigator 是一款专为开发者设计的 Web 应用，旨在将用户的 GitHub Starred 仓库从一个静态的收藏夹，转变为一个动态、智能、可深度检索的个人技术知识库。
 
-# [Live Demo](https://nextjs-saas-template.agenticdev.agency/sign-up)
-# [Github Repo](https://github.com/LubomirGeorgiev/cloudflare-workers-nextjs-saas-template)
+## 核心问题
 
-This is a SaaS template for Cloudflare Workers. It uses the [OpenNext](https://opennext.js.org/cloudflare) framework to build a SaaS application.
+开发者在 GitHub 上收藏了大量有价值的仓库，但原生功能难以解决“收藏即遗忘”的痛点：
+*   **命名遗忘**: 常常只记得仓库功能，忘了确切名称。
+*   **上下文缺失**: 无法按收藏时间、语言、许可证等关键信息筛选。
+*   **搜索无力**: 无法理解自然语言描述，只能进行简单的关键词匹配。
 
-Have a look at the [project plan](./cursor-docs/project-plan.md) to get an overview of the project.
+本项目的愿景是让开发者能通过任何记忆片段——一个模糊的功能描述、一个具体的编程语言——在数秒内精准地从成百上千的收藏中找到所需仓库。
 
-> [!TIP]
-> This template is brought to you by 👉 [AgenticDev](https://agenticdev.agency/?ref=github-readme-nextjs-template) 👈 - where we help businesses automate operations and boost productivity through custom AI implementations. Just like this open-source project demonstrates technical excellence, we deliver:
->
-> - Process automation with LLM-powered workflows
-> - AI strategy consulting for sustainable scaling
-> - Custom SaaS development using cutting-edge stacks
->
-> Hundrets of developers already trust our codebase - Just Imagine what we could build for your business.
+## 核心功能
 
-# Supported Features:
+*   **GitHub 认证**: 通过 GitHub OAuth 2.0 安全登录。
+*   **仓库数据同步**: 自动同步用户所有 Starred 的仓库元数据。
+*   **精确筛选**: 支持通过关键词、编程语言、主题、Star数、所有者、收藏时间等多维度组合筛选。
+*   **智能语义搜索**: 基于自然语言描述，利用 AI Embedding 和向量搜索理解用户意图，找到最相关的仓库。
+*   **融合式搜索**: 无缝结合精确筛选和智能搜索，实现最高效的知识库检索。
 
-- 🔐 Authentication with Lucia Auth
-  - 📧 Email/Password Sign In
-  - 📝 Email/Password Sign Up
-  - 🔑 WebAuthn/Passkey Authentication
-  - 🌐 Google OAuth/SSO Integration
-  - 🔄 Forgot Password Flow
-  - 🔒 Change Password
-  - ✉️ Email Verification
-  - 🗝️ Session Management with Cloudflare KV
-  - 🤖 Turnstile Captcha Integration
-  - ⚡ Rate Limiting for Auth Endpoints
-  - 🛡️ Protected Routes and Layouts
-  - 📋 Session Listing and Management
-  - 🔒 Anti-Disposable Email Protection
-- 💾 Database with Drizzle and Cloudflare D1
-  - 🏗️ Type-safe Database Operations
-  - 🔄 Automatic Migration Generation
-  - 💻 SQLite for Local Development
-  - ⚡ Efficient Data Fetching
-  - 🔍 Type-safe Queries
-- 📨 Email Service with React Email and Resend or Brevo
-  - 🎨 Beautiful Email Templates
-  - 👀 Email Preview Mode
-  - 🔧 Local Email Development Server
-  - 📬 Transactional Emails
-  - ✉️ Email Verification Flow
-  - 📱 Responsive Email Templates
-- 🚀 Deployment with Github Actions
-  - ⚙️ Automatic Deployments
-  - 🔐 Environment Variables Management
-  - 📦 Database Migrations
-  - 🔄 Comprehensive CI/CD Pipeline
-  - 🧹 Cache Purging
-  - ✅ Type Checking
-- 🎨 Modern UI
-  - 🎨 Tailwind CSS
-  - 🧩 Shadcn UI Components
-  - 🌓 Dark/Light Mode
-  - 📱 Responsive Design
-  - ⚡ Loading States and Animations
-  - 🔔 Toast Notifications
-  - ⚙️ Settings Dashboard
-  - 🏠 Landing Page
-  - ✨ Beautiful Email Templates
-  - 👤 Profile Settings Page
-  - 🎯 Form Validation States
-- 💳 Credit Billing System
-  - 💰 Credit-based Pricing Model
-  - 🔄 Monthly Credit Refresh
-  - 📊 Credit Usage Tracking
-  - 💳 Stripe Payment Integration
-  - 📜 Transaction History
-  - 📦 Credit Package Management
-  - 💸 Pay-as-you-go Model
-  - 📈 Usage Analytics
-- 👑 Admin Dashboard
-  - 👥 User Management
-- ✨ Validations with Zod and React Hook Form
-  - 🛡️ Type-safe Form Validations
-  - 🔒 Server-side Validations
-  - 🔍 Client-side Validations
-  - 🧹 Input Sanitization
-  - ⚡ Real-time Validation
-  - 🔄 Form State Management
-- 👨‍💻 Developer Experience
-  - 🧪 Local Development Setup
-  - 📘 TypeScript Support
-  - 🔍 ESLint Configuration
-  - ✨ Prettier Configuration
-  - 🔐 Type-safe Environment Variables
-  - 🏗️ Cloudflare Types Generation
-  - 🤖 AI-powered Development with Cursor
-  - 📚 Comprehensive Documentation
-  - 📐 Project Structure Best Practices
-- ⚡ Edge Computing
-  - 🌍 Global Deployment with Cloudflare Workers
-  - 🚀 Zero Cold Starts
-  - 💨 Edge Caching
-  - ⚛️ React Server Components
-  - 🖥️ Server-side Rendering
-  - 💾 Edge Database with D1
-  - 🗄️ Session Storage with KV
-  - ⚡ API Rate Limiting
-- 🏢 Multi-tenancy Support
-  - 👥 Organization Management
-  - 👤 User Roles and Permissions
-  - 🔍 Tenant Isolation
-  - 🔄 Resource Sharing Controls
-  - 📊 Per-tenant Analytics
-  - 🔐 Tenant-specific Configurations
-  - 💼 Team Collaboration Features
+## 技术栈
 
-## Planned features (TODO):
+*   **Web 框架**: Next.js (App Router) + OpenNext
+*   **部署平台**: Cloudflare Pages & Workers
+*   **SQL 数据库**: Cloudflare D1 (存储仓库元数据)
+*   **Vector 数据库**: Cloudflare Vectorize (存储 README 向量)
+*   **AI 模型**: Cloudflare Workers AI (用于 Embedding)
+*   **认证**: Lucia Auth
 
-- [ ] Add an eslint rule to check for unused imports and exports
-- [ ] Add an eslint rule to check for unused variables and functions
-- [ ] Upgrade to Tailwind 4 and fix the errors and visual regressions. Already started here https://github.com/LubomirGeorgiev/cloudflare-workers-nextjs-saas-template/tree/tailwind-4-upgrade
-- [ ] Update Meta SEO tags 🔍
-- [ ] Dynamic OpenGraph images 📸
-- [ ] sitemap.xml 📄
-- [ ] robots.txt 📄
-- [ ] Multi-language support (i18n) 🌐
-- [ ] Notifications 🔔
-- [ ] Webhooks 🔗
+## 本地运行
 
-# Running it locally
+1.  `pnpm install`
+2.  复制 `.dev.vars.example` 到 `.dev.vars` 并填入必要的环境变量 (如 GitHub OAuth Client ID 和 Secret)。
+3.  `pnpm db:migrate:dev` - 创建本地 SQLite 数据库并应用迁移。
+4.  `pnpm dev`
+5.  访问 http://localhost:3000
 
-1. `pnpm install`
-2.  Copy `.dev.vars.example` to `.dev.vars` and fill in the values.
-3.  Copy `.env.example` to `.env` and fill in the values.
-4. `pnpm db:migrate:dev` - Creates a local SQLite database and applies migrations
-5. `pnpm dev`
-6.  Open http://localhost:3000
+## 部署
 
-## Changes to wrangler.jsonc
-
-After making a change to wrangler.jsonc, you need to run `pnpm cf-typegen` to generate the new types.
-
-## Things to change and customize before deploying to production
-1. Go to `src/constants.ts` and update it with your project details
-2. Update `.cursor/rules/001-main-project-context.mdc` with your project specification so that Cursor AI can give you better suggestions
-3. Update the footer in `src/components/footer.tsx` with your project details and links
-4. Optional: Update the color palette in `src/app/globals.css`
-5. Update the metadata in `src/app/layout.tsx` with your project details
-
-## Deploying to Cloudflare with Github Actions
-
-1. Create D1 and KV namespaces
-2. Set either `RESEND_API_KEY` or `BREVO_API_KEY` as a secret in your Cloudflare Worker depending on which email service you want to use.
-3. Create a Turnstile catcha in your Cloudflare account, and set the `NEXT_PUBLIC_TURNSTILE_SITE_KEY` as a Github Actions variable.
-4. Set `TURNSTILE_SECRET_KEY` as a secret in your Cloudflare Worker.
-5. Update the `wrangler.jsonc` file with the new database and KV namespaces, env variables and account id. Search for "cloudflare-workers-nextjs-saas-template" recursively in the whole repository and change that to the name of your project. Don't forget that the name you choose at the top of the wrangler.jsonc should be the same as `services->[0]->service` in the same file.
-6. Go to https://dash.cloudflare.com/profile/api-tokens and click on "Use template" next to "Edit Cloudflare Workers". On the next, page add the following permissions in addition to the ones from the template:
-    - Account:AI Gateway:Edit
-    - Account:Workers AI:Edit
-    - Account:Workers AI:Read
-    - Account:Queues:Edit
-    - Account:Vectorize:Edit
-    - Account:D1:Edit
-    - Account:Cloudflare Images:Edit
-    - Account:Workers KV Storage:Edit
-    - Zone:Cache Purge:Purge
-7. Add the API token to the Github repository secrets as `CLOUDFLARE_API_TOKEN`
-8. Add the Cloudflare account id to the Github repository variables as `CLOUDFLARE_ACCOUNT_ID`
-9. Optional: If you want clear the CDN cache on deploy, add `CLOUDFLARE_ZONE_ID` to the Github repository variables for the zone id of your domain. This is the zone id of your domain, not the account id.
-10. Push to the main branch
-
-## Email templates
-If you want to preview and edit the email templates you can:
-1. `pnpm email:dev`
-2. Open http://localhost:3001
-3. Edit the email templates in the `src/react-email` folder
-4. For inspiration you can checkout https://react.email/templates
+部署流程基于 Cloudflare 和 GitHub Actions。
+1.  在 Cloudflare 创建 D1 数据库和 Vectorize 索引。
+2.  更新 `wrangler.jsonc`，填入你的 Cloudflare account ID 以及新创建的 D1 和 Vectorize 的绑定信息。
+3.  在 GitHub 仓库的 Secrets 中设置 `CLOUDFLARE_API_TOKEN`。
+4.  在 GitHub 仓库的 Variables 中设置 `CLOUDFLARE_ACCOUNT_ID`。
+5.  将代码推送到 `main` 分支，GitHub Actions 将会自动完成部署。

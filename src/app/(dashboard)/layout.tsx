@@ -1,9 +1,5 @@
-import { AppSidebar } from "@/components/app-sidebar"
+import { Header } from "@/components/header";
 import { getSessionFromCookie } from "@/utils/auth"
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@/components/ui/sidebar"
 import { redirect } from "next/navigation"
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -14,11 +10,9 @@ export default async function DashboardLayout({ children }: { children: React.Re
   }
 
   return (
-    <SidebarProvider>
-      <AppSidebar />
-      <SidebarInset>
-        {children}
-      </SidebarInset>
-    </SidebarProvider>
+    <div className="relative flex min-h-screen flex-col">
+      <Header />
+      <main className="flex-1">{children}</main>
+    </div>
   )
 }

@@ -9,21 +9,15 @@ export const metadata: Metadata = {
   description: "Sign in to your account",
 };
 
-const SignInPage = async ({
-  searchParams,
-}: {
-  searchParams: Promise<{ redirect?: string }>;
-}) => {
-  const { redirect: redirectParam } = await searchParams;
+const SignInPage = async () => {
   const session = await getSessionFromCookie();
-  const redirectPath = redirectParam ?? REDIRECT_AFTER_SIGN_IN as unknown as string;
 
   if (session) {
-    return redirect(redirectPath);
+    return redirect(REDIRECT_AFTER_SIGN_IN);
   }
 
   return (
-    <SignInClientPage redirectPath={redirectPath} />
+    <SignInClientPage />
   )
 }
 
