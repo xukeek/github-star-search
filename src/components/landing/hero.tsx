@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { GITHUB_REPO_URL } from "@/constants";
 import Link from "next/link";
-import ShinyButton from "@/components/ui/shiny-button";
+import { Badge } from "@/components/ui/badge";
 import { getTotalUsers } from "@/utils/stats";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -13,9 +13,9 @@ export function Hero() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <div className="mb-10 flex justify-center gap-4 flex-wrap">
-              <ShinyButton className="rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
+              <Badge variant="secondary" className="rounded-full">
                 100% Free & Open Source
-              </ShinyButton>
+              </Badge>
               <Suspense fallback={<TotalUsersButtonSkeleton />}>
                 <TotalUsersButton />
               </Suspense>

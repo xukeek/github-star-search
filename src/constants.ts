@@ -9,5 +9,10 @@ export const SITE_DOMAIN = new URL(SITE_URL).hostname
 
 export const SESSION_COOKIE_NAME = "session";
 export const GITHUB_OAUTH_STATE_COOKIE = "github-oauth-state";
+export const MAX_SESSIONS_PER_USER = 5;
+
+// GitHub OAuth credentials - these should be set in your .dev.vars file
+export const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID!;
+export const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET!;
 
 export const REDIRECT_AFTER_SIGN_IN = "/dashboard" as Route;

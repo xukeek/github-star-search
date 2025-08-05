@@ -3,7 +3,7 @@ import { SiX as XIcon, SiGithub as GithubIcon } from '@icons-pack/react-simple-i
 import ThemeSwitch from "@/components/theme-switch";
 import { GITHUB_REPO_URL, SITE_NAME } from "@/constants";
 import { Button } from "./ui/button";
-import AgenticDevStudioLogo from "./agenticdev-studio-logo";
+
 import { getGithubStars } from "@/utils/stats";
 import { Suspense } from "react";
 
@@ -92,7 +92,7 @@ export function Footer() {
                     className="flex items-center font-medium text-sm hover:text-foreground transition-colors"
                   >
                     <span className="whitespace-nowrap">Built by</span>
-                    <AgenticDevStudioLogo className="h-7 w-7 mx-1.5" />
+                    <span className="text-lg font-bold">⭐</span>
                     <span className="whitespace-nowrap">AgenticDev</span>
                   </a>
                 </div>
