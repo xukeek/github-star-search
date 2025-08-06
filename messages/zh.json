@@ -4,9 +4,31 @@
     "tagline": "星海AI领航员",
     "description": "将你的 GitHub Stars 从静态收藏夹，转变为动态、智能、可深度检索的个人技术知识库。通过 AI 语义搜索和精确筛选，让你在数秒内找到任何收藏的仓库。"
   },
+  "auth": {
+    "signIn": {
+      "title": "登录到星海AI领航员",
+      "subtitle": "连接GitHub开始使用",
+      "description": "通过GitHub账号登录，开始管理和搜索你的星标仓库",
+      "githubButton": "使用 GitHub 登录",
+      "features": {
+        "title": "登录后你可以",
+        "sync": "同步你的GitHub星标仓库",
+        "search": "使用AI智能搜索功能",
+        "manage": "管理你的技术知识库"
+      },
+      "benefits": {
+        "title": "为什么选择我们？",
+        "secure": "安全可靠的GitHub OAuth认证",
+        "free": "完全免费，无任何使用限制",
+        "fast": "秒级响应，全球加速访问",
+        "smart": "AI驱动的语义搜索技术"
+      }
+    }
+  },
   "navigation": {
     "home": "首页",
     "dashboard": "控制台",
+    "search": "搜索",
     "signin": "登录",
     "signup": "注册",
     "signout": "退出",
@@ -185,6 +207,98 @@
     },
     "copyright": "基于开源模板构建。",
     "originalTemplate": "原始模板"
+  },
+  "dashboard": {
+    "title": "控制台",
+    "sync": {
+      "title": "同步状态",
+      "lastSync": "最后同步",
+      "repoCount": "已同步仓库",
+      "needsInitialSync": "需要初始同步",
+      "triggerSync": "立即同步",
+      "syncing": "同步中...",
+      "syncSuccess": "同步成功！同步了 {count} 个仓库。",
+      "syncError": "同步失败，请重试。",
+      "never": "从未同步",
+      "repos": "{count} 个仓库"
+    },
+    "quickActions": {
+      "title": "快速操作",
+      "searchRepos": "搜索仓库",
+      "viewAll": "查看所有仓库",
+      "syncNow": "立即同步"
+    },
+    "stats": {
+      "title": "统计概览",
+      "totalRepos": "总仓库数",
+      "languages": "编程语言",
+      "totalStars": "总Star数",
+      "lastActivity": "最近活动"
+    }
+  },
+  "search": {
+    "title": "搜索仓库",
+    "subtitle": "使用自然语言或精确筛选找到任何星标仓库",
+    "placeholder": "描述你想找的仓库...",
+    "aiSearch": "AI 搜索",
+    "normalSearch": "搜索",
+    "searching": "搜索中...",
+    "aiSearching": "AI 搜索中...",
+    "advanced": "高级筛选",
+    "results": {
+      "title": "搜索结果",
+      "count": "({count} 个仓库)",
+      "aiPowered": "AI 推荐",
+      "query": "搜索：\"{query}\"",
+      "noResults": "未找到仓库",
+      "noResultsDesc": "尝试调整搜索条件或筛选器",
+      "modifyFilters": "修改筛选器"
+    },
+    "emptyState": {
+      "title": "准备搜索你的仓库",
+      "description": "使用自然语言描述你要找的内容，或使用高级筛选进行精确搜索",
+      "aiExamples": "🤖 AI搜索示例：",
+      "preciseExamples": "🔍 精确搜索：",
+      "examples": {
+        "ai": [
+          "• \"React组件库\"",
+          "• \"Python机器学习\"",
+          "• \"后端API框架\""
+        ],
+        "precise": [
+          "• 按语言筛选",
+          "• 按Star数排序",
+          "• 日期范围"
+        ]
+      }
+    },
+    "filters": {
+      "title": "高级筛选",
+      "description": "将精确筛选与AI搜索结合，获得更好的结果",
+      "keyword": "关键词",
+      "language": "编程语言",
+      "topics": "主题标签",
+      "stars": "Star数",
+      "stargazers": "Star数量",
+      "owner": "所有者/组织",
+      "starredDate": "收藏时间",
+      "license": "许可证",
+      "lastUpdate": "最后更新",
+      "archived": "已归档",
+      "placeholders": {
+        "keyword": "搜索名称或描述",
+        "language": "选择编程语言",
+        "topics": "输入主题标签",
+        "owner": "输入所有者名称",
+        "license": "选择许可证类型"
+      },
+      "ranges": {
+        "min": "最小值",
+        "max": "最大值",
+        "from": "开始日期",
+        "to": "结束日期"
+      }
+    }
   },
   "NotFoundPage": {
     "title": "404 - 页面未找到",

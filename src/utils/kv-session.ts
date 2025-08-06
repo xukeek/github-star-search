@@ -3,7 +3,7 @@ import "server-only";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { headers } from "next/headers";
 
-import { getUserFromDB, getUserTeamsWithPermissions } from "@/utils/auth";
+import { getUserFromDB } from "@/utils/auth";
 import { getIP } from "./get-IP";
 import { MAX_SESSIONS_PER_USER } from "@/constants";
 const SESSION_PREFIX = "session:";
@@ -27,23 +27,8 @@ export interface KVSession {
   continent?: string;
   ip?: string | null;
   userAgent?: string | null;
-  authenticationType?: "passkey" | "password" | "google-oauth";
+  authenticationType?: "passkey" | "password" | "google-oauth" | "github-oauth";
   passkeyCredentialId?: string;
-  /**
-   * Teams data - contains list of teams the user is a member of
-   * along with role and permissions data
-   */
-  teams?: {
-    id: string;
-    name: string;
-    slug: string;
-    role: {
-      id: string;
-      name: string;
-      isSystemRole: boolean;
-    };
-    permissions: string[];
-  }[];
   /**
    *  !!!!!!!!!!!!!!!!!!!!!
    *  !!!   IMPORTANT   !!!
@@ -63,7 +48,7 @@ export interface KVSession {
  * IF YOU MAKE ANY CHANGES TO THE KVSESSION TYPE ABOVE, YOU NEED TO INCREMENT THIS VERSION.
  * THIS IS HOW WE TRACK WHEN WE NEED TO UPDATE THE SESSIONS IN THE KV STORE.
  */
-export const CURRENT_SESSION_VERSION = 2;
+export const CURRENT_SESSION_VERSION = 3;
 
 export async function getKV() {
   const { env } = getCloudflareContext();
@@ -82,7 +67,6 @@ export async function createKVSession({
   user,
   authenticationType,
   passkeyCredentialId,
-  teams
 }: CreateKVSessionParams): Promise<KVSession> {
   const { cf } = getCloudflareContext();
   const headersList = await headers();
@@ -105,7 +89,6 @@ export async function createKVSession({
     user,
     authenticationType,
     passkeyCredentialId,
-    teams,
     version: CURRENT_SESSION_VERSION
   };
 
@@ -160,14 +143,6 @@ export async function getKVSession(sessionId: string, userId: string): Promise<K
     session.user.updatedAt = new Date(session.user.updatedAt);
   }
 
-  if (session?.user?.lastCreditRefreshAt) {
-    session.user.lastCreditRefreshAt = new Date(session.user.lastCreditRefreshAt);
-  }
-
-  if (session?.user?.emailVerified) {
-    session.user.emailVerified = new Date(session.user.emailVerified);
-  }
-
   return session;
 }
 
@@ -181,15 +156,11 @@ export async function updateKVSession(sessionId: string, userId: string, expires
     throw new Error("User not found");
   }
 
-  // Get updated teams data with permissions
-  const teamsWithPermissions = await getUserTeamsWithPermissions(userId);
-
   const updatedSession: KVSession = {
     ...session,
     version: CURRENT_SESSION_VERSION,
     expiresAt: expiresAt.getTime(),
     user: updatedUser,
-    teams: teamsWithPermissions
   };
 
   const kv = await getKV();
@@ -253,9 +224,6 @@ export async function updateAllSessionsOfUser(userId: string) {
 
   if (!newUserData) return;
 
-  // Get updated teams data with permissions
-  const teamsWithPermissions = await getUserTeamsWithPermissions(userId);
-
   for (const sessionObj of sessions) {
     const session = await kv.get(sessionObj.key);
     if (!session) continue;
@@ -271,7 +239,6 @@ export async function updateAllSessionsOfUser(userId: string) {
         JSON.stringify({
           ...sessionData,
           user: newUserData,
-          teams: teamsWithPermissions,
         }),
         { expirationTtl: ttlInSeconds }
       );

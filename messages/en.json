@@ -1,12 +1,34 @@
 {
   "site": {
     "name": "Starry AI Navigator",
-    "tagline": "Starry AI Navigator",
-    "description": "Transform your GitHub Stars from a static collection into a dynamic, intelligent, and deeply searchable personal technical knowledge base. Find any starred repository in seconds with advanced filtering and AI-powered semantic search."
+    "tagline": "Your GitHub Stars Navigator",
+    "description": "Transform your GitHub Stars from a static bookmark into a dynamic, intelligent, and deeply searchable personal tech knowledge base. Find any starred repository in seconds with AI semantic search and precise filtering."
+  },
+  "auth": {
+    "signIn": {
+      "title": "Sign in to Starry AI Navigator",
+      "subtitle": "Connect with GitHub to get started",
+      "description": "Sign in with your GitHub account to start managing and searching your starred repositories",
+      "githubButton": "Sign in with GitHub",
+      "features": {
+        "title": "What you can do after signing in",
+        "sync": "Sync your GitHub starred repositories",
+        "search": "Use AI-powered semantic search",
+        "manage": "Manage your tech knowledge base"
+      },
+      "benefits": {
+        "title": "Why choose us?",
+        "secure": "Secure GitHub OAuth authentication",
+        "free": "Completely free with no usage limits",
+        "fast": "Sub-second response with global acceleration",
+        "smart": "AI-driven semantic search technology"
+      }
+    }
   },
   "navigation": {
     "home": "Home",
     "dashboard": "Dashboard",
+    "search": "Search",
     "signin": "Sign In",
     "signup": "Sign Up",
     "signout": "Sign Out",
@@ -185,6 +207,98 @@
     },
     "copyright": "Built on open source template.",
     "originalTemplate": "Original Template"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "sync": {
+      "title": "Sync Status",
+      "lastSync": "Last Sync",
+      "repoCount": "Synced Repositories",
+      "needsInitialSync": "Needs Initial Sync",
+      "triggerSync": "Sync Now",
+      "syncing": "Syncing...",
+      "syncSuccess": "Sync successful! Synced {count} repositories.",
+      "syncError": "Sync failed, please try again.",
+      "never": "Never synced",
+      "repos": "{count} repositories"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "searchRepos": "Search Repositories",
+      "viewAll": "View All Repositories",
+      "syncNow": "Sync Now"
+    },
+    "stats": {
+      "title": "Overview Stats",
+      "totalRepos": "Total Repositories",
+      "languages": "Programming Languages",
+      "totalStars": "Total Stars",
+      "lastActivity": "Last Activity"
+    }
+  },
+  "search": {
+    "title": "Search Repositories",
+    "subtitle": "Find any starred repository with natural language or precise filters",
+    "placeholder": "Describe the repository you're looking for...",
+    "aiSearch": "AI Search",
+    "normalSearch": "Search",
+    "searching": "Searching...",
+    "aiSearching": "AI Searching...",
+    "advanced": "Advanced",
+    "results": {
+      "title": "Search Results",
+      "count": "({count} repositories)",
+      "aiPowered": "AI Powered",
+      "query": "Results for: \"{query}\"",
+      "noResults": "No repositories found",
+      "noResultsDesc": "Try adjusting your search query or filters",
+      "modifyFilters": "Modify Filters"
+    },
+    "emptyState": {
+      "title": "Ready to search your repositories",
+      "description": "Use natural language to describe what you're looking for, or use advanced filters for precise results",
+      "aiExamples": "🤖 AI Search Examples:",
+      "preciseExamples": "🔍 Precise Search:",
+      "examples": {
+        "ai": [
+          "• \"React component library\"",
+          "• \"Machine learning in Python\"",
+          "• \"Backend API framework\""
+        ],
+        "precise": [
+          "• Filter by language",
+          "• Sort by stars",
+          "• Date ranges"
+        ]
+      }
+    },
+    "filters": {
+      "title": "Advanced Filters",
+      "description": "Combine precise filters with AI search for better results",
+      "keyword": "Keyword",
+      "language": "Programming Language",
+      "topics": "Topics",
+      "stars": "Stars",
+      "stargazers": "Star Count",
+      "owner": "Owner/Organization",
+      "starredDate": "Starred Date",
+      "license": "License",
+      "lastUpdate": "Last Update",
+      "archived": "Archived",
+      "placeholders": {
+        "keyword": "Search name or description",
+        "language": "Select programming language",
+        "topics": "Enter topic tags",
+        "owner": "Enter owner name",
+        "license": "Select license type"
+      },
+      "ranges": {
+        "min": "Minimum",
+        "max": "Maximum",
+        "from": "From date",
+        "to": "To date"
+      }
+    }
   },
   "NotFoundPage": {
     "title": "404 - Page Not Found",

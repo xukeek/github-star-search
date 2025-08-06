@@ -1,32 +1,45 @@
-import { PageHeader } from "@/components/page-header"
+import { Metadata } from "next";
+import { getSessionFromCookie } from "@/utils/auth";
+import { redirect } from "next/navigation";
+import { SyncService } from "@/lib/sync-service";
+import { DashboardClient } from "./dashboard.client";
 
-export default function Page() {
+export const metadata: Metadata = {
+  title: "Dashboard",
+  description: "Manage your GitHub starred repositories",
+};
+
+export default async function DashboardPage() {
+  const session = await getSessionFromCookie();
+
+  if (!session) {
+    redirect("/sign-in");
+  }
+
+  const syncService = new SyncService();
+
+  // 获取用户的同步状态
+  const [lastSyncTime, repoCount] = await Promise.all([
+    syncService.getLastSyncTime(session.user.id),
+    syncService.getUserRepoCount(session.user.id),
+  ]);
+
+  const needsInitialSync = !lastSyncTime;
+
   return (
-    <>
-      <PageHeader
-        items={[
-          {
-            href: "/dashboard",
-            label: "Dashboard"
-          }
-        ]}
-      />
-      <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-        <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-          <div className="aspect-video rounded-xl bg-muted/50 flex items-center justify-center">
-            Example
-          </div>
-          <div className="aspect-video rounded-xl bg-muted/50 flex items-center justify-center">
-            Example
-          </div>
-          <div className="aspect-video rounded-xl bg-muted/50 flex items-center justify-center">
-            Example
-          </div>
-        </div>
-        <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min flex items-center justify-center">
-          Example
-        </div>
+    <div className="container mx-auto py-8 px-4">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
+
+        <DashboardClient
+          user={session.user}
+          initialSyncData={{
+            lastSyncTime: lastSyncTime?.toISOString() || null,
+            repoCount,
+            needsInitialSync,
+          }}
+        />
       </div>
-    </>
-  )
+    </div>
+  );
 }

@@ -88,5 +88,19 @@
             "binding": "NEXT_INC_CACHE_KV",
             "id": "c6f2b077e0a34a84b3598558eb833055"
         }
-    ]
+    ],
+    "vectorize": [
+        {
+            "binding": "VECTORIZE_INDEX",
+            "index_name": "starry-ai-navigator-index"
+        }
+    ],
+    "ai": {
+        "binding": "AI"
+    },
+    "triggers": {
+        "crons": [
+            "0 2 * * *"
+        ]
+    }
   }
