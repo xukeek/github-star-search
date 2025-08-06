@@ -32,9 +32,10 @@ Starry AI Navigator 是一款专为开发者设计的 Web 应用，旨在将用�
 
 1.  `pnpm install`
 2.  复制 `.dev.vars.example` 到 `.dev.vars` 并填入必要的环境变量 (如 GitHub OAuth Client ID 和 Secret)。
-3.  `pnpm db:migrate:dev` - 创建本地 SQLite 数据库并应用迁移。
-4.  `pnpm dev`
-5.  访问 http://localhost:3000
+3.  复制 `.env.example` 到 `.env` 并填入必要的环境变量。
+4.  `pnpm db:migrate:dev` - 创建本地 SQLite 数据库并应用迁移。
+5.  `pnpm dev`
+6.  访问 http://localhost:3000
 
 ## 部署
 

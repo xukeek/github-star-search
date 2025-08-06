@@ -157,6 +157,35 @@
     "sort": "Sort",
     "language": "Language"
   },
+  "theme": {
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "footer": {
+    "description": "Transform your GitHub Stars into an intelligent, searchable technical knowledge base.",
+    "features": {
+      "title": "Features",
+      "aiSearch": "AI Smart Search",
+      "preciseFilter": "Precise Filtering",
+      "hybridSearch": "Hybrid Search",
+      "autoSync": "Auto Sync"
+    },
+    "resources": {
+      "title": "Resources",
+      "dashboard": "Dashboard",
+      "github": "GitHub",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "tools": {
+      "title": "Tools",
+      "themeSwitch": "Theme Switch",
+      "starOnGithub": "Star on GitHub"
+    },
+    "copyright": "Built on open source template.",
+    "originalTemplate": "Original Template"
+  },
   "NotFoundPage": {
     "title": "404 - Page Not Found",
     "description": "The page you are looking for does not exist.",

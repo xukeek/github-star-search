@@ -157,6 +157,35 @@
     "sort": "排序",
     "language": "语言"
   },
+  "theme": {
+    "system": "跟随系统",
+    "light": "浅色",
+    "dark": "深色"
+  },
+  "footer": {
+    "description": "将你的 GitHub Stars 转变为智能、可搜索的技术知识库。",
+    "features": {
+      "title": "功能特性",
+      "aiSearch": "AI 智能搜索",
+      "preciseFilter": "精确筛选",
+      "hybridSearch": "混合搜索",
+      "autoSync": "自动同步"
+    },
+    "resources": {
+      "title": "资源链接",
+      "dashboard": "控制台",
+      "github": "GitHub",
+      "privacy": "隐私政策",
+      "terms": "服务条款"
+    },
+    "tools": {
+      "title": "工具设置",
+      "themeSwitch": "主题切换",
+      "starOnGithub": "Star on GitHub"
+    },
+    "copyright": "基于开源模板构建。",
+    "originalTemplate": "原始模板"
+  },
   "NotFoundPage": {
     "title": "404 - 页面未找到",
     "description": "您正在寻找的页面不存在。",

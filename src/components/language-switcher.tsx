@@ -1,6 +1,6 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
 import {
@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { GlobeAltIcon } from '@heroicons/react/24/outline';
+import { GlobeIcon } from 'lucide-react';
 import { routing } from '@/i18n/routing';
 
 const localeNames = {
@@ -18,7 +18,6 @@ const localeNames = {
 } as const;
 
 export function LanguageSwitcher() {
-  const t = useTranslations('common');
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -26,25 +25,31 @@ export function LanguageSwitcher() {
   const switchLocale = (newLocale: string) => {
     if (newLocale !== locale) {
       router.replace(pathname, { locale: newLocale });
+      router.refresh();
     }
   };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="gap-2">
-          <GlobeAltIcon className="h-4 w-4" />
-          <span className="hidden sm:inline">{localeNames[locale as keyof typeof localeNames]}</span>
+        <Button variant="ghost" size="sm" className="h-8 w-8 px-0">
+          <GlobeIcon className="h-4 w-4" />
+          <span className="sr-only">Switch language</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="w-36">
         {routing.locales.map((loc) => (
           <DropdownMenuItem
             key={loc}
             onClick={() => switchLocale(loc)}
-            className={locale === loc ? 'bg-accent' : ''}
+            className={`cursor-pointer ${locale === loc ? 'bg-accent text-accent-foreground' : ''}`}
           >
-            {localeNames[loc as keyof typeof localeNames]}
+            <span className="flex items-center justify-between w-full">
+              {localeNames[loc as keyof typeof localeNames]}
+              {locale === loc && (
+                <span className="text-xs text-muted-foreground">✓</span>
+              )}
+            </span>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
